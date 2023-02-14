@@ -2,50 +2,54 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
-  font-size: 3.2em;
+  font-size: 4em;
   line-height: 1.1;
   display: flex;
   text-align: center;
 }
 
-.card {
-  padding: 2em;
+.timer .title {
+  font-size: 6em;
 }
 
-.toolbar {
-  position: fixed;
+@media screen and (max-width: 768px) {
+  .timer .title {
+    font-size: 3em;
+  }
+  .title {
+    font-size: 3em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .timer .title {
+    font-size: 2em;
+  }
+  .title {
+    font-size: 2em;
+  }
+}
+
+.header {
   display: flex;
-  gap: 4px;
-  top: 0;
-  margin: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
 }
 
-.right {
-  right: 0;
-}
-
-.left {
-  left: 0;
-}
-
-.center {
-  position: absolute;
-  left: 50%;
-  right: 50%;
-  margin-top: 0px;
-}
-
-.counter {
+.section {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.counter button {
+button {
   padding: 0.5em;
   background: none;
   margin-left: 4px;
@@ -53,4 +57,10 @@
 
 button svg {
   vertical-align: text-bottom;
+}
+
+.timer {
+  border: 1px solid #ccc;
+  padding: 2rem 4rem 2rem 4rem;
+  border-radius: 4px;
 }

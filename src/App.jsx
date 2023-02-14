@@ -1,79 +1,15 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import Icon from "@mdi/react";
-import {
-    mdiBackspaceOutline,
-    mdiArrowULeftTop,
-    mdiThemeLightDark,
-    mdiShareVariantOutline,
-    mdiChartBoxOutline,
-    mdiLinkPlus,
-    mdiPause,
-    mdiPlay,
-} from "@mdi/js";
+import Timer from "./components/Timer";
 
 function App() {
-    const [time, setTime] = useState(0);
-    const [paused, setPaused] = useState(false);
-    let interval;
-    function secondsToHms(s) {
-      let hours = Math.floor(s / 3600);
-      let minutes = Math.floor((s - hours * 3600) / 60);
-      let seconds = s - hours * 3600 - minutes * 60;
-
-      let timeString =
-          hours.toString().padStart(2, "0") +
-          ":" +
-          minutes.toString().padStart(2, "0") +
-          ":" +
-          seconds.toString().padStart(2, "0");
-      return timeString;
-    }
-
-    useEffect(() => {
-        if (!paused) {
-            interval = setInterval(() => {
-                setTime((time) => time + 1);
-            }, 1000);
-        } else {
-            clearInterval(interval);
-        }
-
-        return () => clearInterval(interval);
-    }, [paused]);
-
     return (
         <div className="App">
-          <div className="toolbar right">
-                <button>
-                    <Icon path={mdiBackspaceOutline} size={1} />
-                </button>
-                <button>
-                    <Icon path={mdiArrowULeftTop} size={1} />
-                </button>
+            <div className="header">
+                <img height="50" width="50" src="/clock_512x512.png" alt="logo" />
+                <h1 className="title">Timer</h1>
             </div>
-            <div className="counter toolbar center">
-              <h1>{secondsToHms(time)}</h1>
-                <button onClick={() => setPaused((prevPaused) => !prevPaused)}>
-                    {paused ? <Icon path={mdiPlay} size={1} /> : <Icon path={mdiPause} size={1} />}
-                </button>
-            </div>
-            <div className="toolbar left">
-                <button>
-                    <Icon path={mdiThemeLightDark} size={1} />
-                </button>
-                <button>
-                    <Icon path={mdiShareVariantOutline} size={1} />
-                </button>
-                <button>
-                    <Icon path={mdiChartBoxOutline} size={1} />
-                </button>
-                <button>
-                    <Icon path={mdiLinkPlus} size={1} />
-                </button>
-            </div>
-            <div className="grid"></div>
-            <div className="keyboard"></div>
+            <Timer />
         </div>
     );
 }
