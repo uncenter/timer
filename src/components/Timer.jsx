@@ -35,6 +35,7 @@ export default function Timer() {
                 setTime((time) => {
                     const newTime = time + 1;
                     localStorage.setItem("clock_seconds", String(newTime));
+                    document.title = secondsToHms(newTime);
                     return newTime;
                 });
             }, 1000);
@@ -49,7 +50,7 @@ export default function Timer() {
                 <h1 className="title">{secondsToHms(time)}</h1>
             </div>
             <div className="section controls">
-                <button onClick={() => {setTime(0); setPaused((prevPaused) => !prevPaused);}}>
+                <button onClick={() => {setTime(0); setPaused((prevPaused) => !prevPaused); localStorage.setItem("clock_seconds", String(0)); document.title = secondsToHms(0)}}>
                     <Icon path={mdiHistory} size={1} />
                 </button>
                 <button onClick={() => setPaused((prevPaused) => !prevPaused)}>
