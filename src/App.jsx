@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import Timer from "./components/Timer";
+import Project from "./components/Project";
 
 function App() {
     return (
@@ -10,6 +11,7 @@ function App() {
                 <h1 className="title">Timer</h1>
             </div>
             <Timer />
+            <Project />
         </div>
     );
 }
