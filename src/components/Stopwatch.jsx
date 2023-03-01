@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Icon from "@mdi/react";
 import { mdiPause, mdiPlay, mdiHistory } from "@mdi/js";
 
-function Stopwatch() {
+export default function Stopwatch() {
     const [time, setTime] = useState(() => {
         let seconds = localStorage.getItem("clock_seconds");
         if (seconds) {
@@ -64,5 +64,3 @@ function Stopwatch() {
         </div>
     );
 }
-
-export default Stopwatch;

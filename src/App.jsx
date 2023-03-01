@@ -2,7 +2,7 @@ import "./App.css";
 import Stopwatch from "./components/Stopwatch.jsx";
 import Project from "./components/Project.jsx";
 
-function App() {
+export default function App() {
     return (
         <div className="App">
             <div className="header">
@@ -14,5 +14,3 @@ function App() {
         </div>
     );
 }
-
-export default App;
