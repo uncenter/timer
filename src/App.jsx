@@ -1,16 +1,15 @@
-import { useState, useEffect } from "react";
 import "./App.css";
-import Timer from "./components/Timer";
-import Project from "./components/Project";
+import Stopwatch from "./components/Stopwatch.jsx";
+import Project from "./components/Project.jsx";
 
 function App() {
     return (
         <div className="App">
             <div className="header">
                 <img height="50" width="50" src="/clock_512x512.png" alt="logo" />
-                <h1 className="title">Timer</h1>
+                <h1 className="title">Stopwatch</h1>
             </div>
-            <Timer />
+            <Stopwatch />
             <Project />
         </div>
     );

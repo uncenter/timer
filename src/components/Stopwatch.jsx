@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Icon from "@mdi/react";
 import { mdiPause, mdiPlay, mdiHistory } from "@mdi/js";
 
-export default function Timer() {
+function Stopwatch() {
     const [time, setTime] = useState(() => {
         let seconds = localStorage.getItem("clock_seconds");
         if (seconds) {
@@ -45,7 +45,7 @@ export default function Timer() {
     
 
     return (
-        <div className="timer">
+        <div className="stopwatch">
             <div className="section clock">
                 <h1 className="title">{secondsToHms(time)}</h1>
             </div>
@@ -64,3 +64,5 @@ export default function Timer() {
         </div>
     );
 }
+
+export default Stopwatch;
